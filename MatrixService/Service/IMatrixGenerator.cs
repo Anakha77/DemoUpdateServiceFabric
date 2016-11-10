@@ -1,4 +1,4 @@
-﻿namespace MatrixService.Service
+﻿namespace Matrix.Service.Service
 {
     public interface IMatrixGenerator
     {

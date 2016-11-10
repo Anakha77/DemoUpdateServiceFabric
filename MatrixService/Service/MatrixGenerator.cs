@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MatrixService.Service
+namespace Matrix.Service.Service
 {
     class MatrixGenerator : IMatrixGenerator
     {

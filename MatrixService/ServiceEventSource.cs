@@ -3,7 +3,7 @@ using System.Diagnostics.Tracing;
 using System.Fabric;
 using System.Threading.Tasks;
 
-namespace MatrixService
+namespace Matrix.Service
 {
     [EventSource(Name = "MyCompany-DemoUpdateServiceFabric-MatrixService")]
     internal sealed class ServiceEventSource : EventSource

@@ -1,7 +1,7 @@
 ﻿using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace MatrixService
+namespace Matrix.Service
 {
     internal class ServiceRequestActionFilter : ActionFilterAttribute
     {

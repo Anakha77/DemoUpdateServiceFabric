@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using Microsoft.ServiceFabric.Services.Runtime;
 
-namespace MatrixService
+namespace Matrix.Service
 {
     internal static class Program
     {

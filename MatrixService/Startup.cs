@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using Owin;
 
-namespace MatrixService
+namespace Matrix.Service
 {
     public static class Startup
     {

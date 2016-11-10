@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Http;
-using MatrixService.Service;
+using Matrix.Service.Service;
 
-namespace MatrixService.Controllers
+namespace Matrix.Service.Controllers
 {
     [ServiceRequestActionFilter]
     public class MatrixController : ApiController

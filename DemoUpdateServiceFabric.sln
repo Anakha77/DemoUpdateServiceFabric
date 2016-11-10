@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "DemoUpdateServiceFabric", "DemoUpdateServiceFabric\DemoUpdateServiceFabric.sfproj", "{9EEA5F15-14EE-497B-A28D-86D58671D86F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixService", "MatrixService\MatrixService.csproj", "{FF022A1B-9FFE-4887-85E9-B03A4A3EA23E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix.Service", "MatrixService\Matrix.Service.csproj", "{FF022A1B-9FFE-4887-85E9-B03A4A3EA23E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixClient", "MatrixClient\MatrixClient.csproj", "{E7C18D89-5742-43EA-8D83-95DE7953E96E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix.Client", "MatrixClient\Matrix.Client.csproj", "{E7C18D89-5742-43EA-8D83-95DE7953E96E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

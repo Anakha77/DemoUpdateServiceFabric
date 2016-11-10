@@ -7,7 +7,7 @@ using Microsoft.Owin.Hosting;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Owin;
 
-namespace MatrixService
+namespace Matrix.Service
 {
     internal class OwinCommunicationListener : ICommunicationListener
     {

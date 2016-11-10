@@ -3,7 +3,7 @@ using System.Fabric;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
-namespace MatrixService
+namespace Matrix.Service
 {
     /// <summary>
     /// The FabricRuntime creates an instance of this class for each service type instance. 
