@@ -32,7 +32,7 @@ namespace Matrix.ServiceWeb.Controllers
 
             await
                 partitionClient.InvokeWithRetryAsync(
-                    async (client) => { matrix = await client.HttpClient.GetStringAsync(new Uri(client.Url, "matrix")); });
+                    async (client) => { matrix = await client.HttpClient.GetStringAsync(new Uri(client.Url, "get")); });
 
             return new HttpResponseMessage
             {

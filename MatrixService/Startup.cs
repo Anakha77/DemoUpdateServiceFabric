@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using Matrix.Common;
 using Owin;
 
 namespace Matrix.Service
@@ -9,15 +10,10 @@ namespace Matrix.Service
         // parameter in the WebApp.Start method.
         public static void ConfigureApp(IAppBuilder appBuilder)
         {
-            // Configure Web API for self-host. 
+            System.Net.ServicePointManager.DefaultConnectionLimit = 256;
             var config = new HttpConfiguration();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-
+            FormatterConfig.ConfigureFormatters(config.Formatters);
+            config.MapHttpAttributeRoutes();
             appBuilder.UseWebApi(config);
         }
     }

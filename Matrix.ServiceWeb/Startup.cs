@@ -1,6 +1,5 @@
-﻿using System.Net.Http.Formatting;
-using System.Web.Http;
-using Newtonsoft.Json;
+﻿using System.Web.Http;
+using Matrix.Common;
 using Owin;
 
 namespace Matrix.ServiceWeb
@@ -11,20 +10,11 @@ namespace Matrix.ServiceWeb
         // parameter in the WebApp.Start method.
         public static void ConfigureApp(IAppBuilder appBuilder)
         {
-            // Configure Web API for self-host. 
+            System.Net.ServicePointManager.DefaultConnectionLimit = 256;
             var config = new HttpConfiguration();
             FormatterConfig.ConfigureFormatters(config.Formatters);
             config.MapHttpAttributeRoutes();
-
             appBuilder.UseWebApi(config);
-        }
-    }
-
-    public static class FormatterConfig
-    {
-        public static void ConfigureFormatters(MediaTypeFormatterCollection formatters)
-        {
-            formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.None;
         }
     }
 }

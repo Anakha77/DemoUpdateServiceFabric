@@ -4,26 +4,27 @@ using Matrix.Service.Generator;
 
 namespace Matrix.Service.Controllers
 {
-    [ServiceRequestActionFilter]
-    public class MatrixController : ApiController
+    public class DefaultController : ApiController
     {
         private readonly IMatrixGenerator _generator;
 
-        public MatrixController()
+        public DefaultController()
         {
             //_generator = new EmptyGenerator();
             _generator = new MatrixGenerator();
             //_generator = new BaseGenerator();
         }
 
-        // GET api/matrix
+        [HttpGet]
+        [Route("Get")]
         public string Get()
         {
             var r = new Random();
             return Get(r.Next(128));
         }
 
-        // GET api/matrix/5 
+        [HttpGet]
+        [Route("Get/{id}")]
         public string Get(int id)
         {
             return _generator.Generate(id);
