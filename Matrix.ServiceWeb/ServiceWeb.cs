@@ -4,14 +4,14 @@ using Matrix.Common;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
-namespace Matrix.Service
+namespace Matrix.ServiceWeb
 {
     /// <summary>
     /// The FabricRuntime creates an instance of this class for each service type instance. 
     /// </summary>
-    internal sealed class MatrixService : StatelessService
+    internal sealed class ServiceWeb : StatelessService
     {
-        public MatrixService(StatelessServiceContext context)
+        public ServiceWeb(StatelessServiceContext context)
             : base(context)
         { }
 
@@ -23,7 +23,7 @@ namespace Matrix.Service
         {
             return new[]
             {
-                new ServiceInstanceListener(serviceContext => new OwinCommunicationListener(Startup.ConfigureApp, serviceContext, ServiceEventSource.Current, "ServiceEndpoint", "matrixservice"))
+                new ServiceInstanceListener(serviceContext => new OwinCommunicationListener(Startup.ConfigureApp, serviceContext, ServiceEventSource.Current, "ServiceEndpoint"))
             };
         }
     }

@@ -7,11 +7,11 @@ using Microsoft.Owin.Hosting;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Owin;
 
-namespace Matrix.Service
+namespace Matrix.Common
 {
-    internal class OwinCommunicationListener : ICommunicationListener
+    public class OwinCommunicationListener : ICommunicationListener
     {
-        private readonly ServiceEventSource _eventSource;
+        private readonly IServiceEventSource _eventSource;
         private readonly Action<IAppBuilder> _startup;
         private readonly ServiceContext _serviceContext;
         private readonly string _endpointName;
@@ -21,12 +21,12 @@ namespace Matrix.Service
         private string _publishAddress;
         private string _listeningAddress;
 
-        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName)
+        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, IServiceEventSource eventSource, string endpointName)
             : this(startup, serviceContext, eventSource, endpointName, null)
         {
         }
 
-        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName, string appRoot)
+        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, IServiceEventSource eventSource, string endpointName, string appRoot)
         {
             if (startup == null)
             {

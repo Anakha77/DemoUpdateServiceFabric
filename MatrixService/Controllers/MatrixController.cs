@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Http;
-using Matrix.Service.Service;
+using Matrix.Service.Generator;
 
 namespace Matrix.Service.Controllers
 {

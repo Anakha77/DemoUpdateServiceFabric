@@ -29,6 +29,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Matrix.ServiceWeb\Matrix.ServiceWeb.csproj" />
     <ProjectReference Include="..\MatrixService\Matrix.Service.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

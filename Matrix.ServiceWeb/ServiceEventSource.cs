@@ -4,10 +4,10 @@ using System.Fabric;
 using System.Threading.Tasks;
 using Matrix.Common;
 
-namespace Matrix.Service
+namespace Matrix.ServiceWeb
 {
-    [EventSource(Name = "MyCompany-DemoUpdateServiceFabric-MatrixService")]
-    internal sealed class ServiceEventSource : EventSource, IServiceEventSource
+    [EventSource(Name = "MyCompany-DemoUpdateServiceFabric-ServiceWeb")]
+    public sealed class ServiceEventSource : EventSource, IServiceEventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();
 
@@ -44,9 +44,9 @@ namespace Matrix.Service
         [NonEvent]
         public void Message(string message, params object[] args)
         {
-            if (IsEnabled())
+            if (this.IsEnabled())
             {
-                var finalMessage = string.Format(message, args);
+                string finalMessage = string.Format(message, args);
                 Message(finalMessage);
             }
         }
@@ -55,7 +55,7 @@ namespace Matrix.Service
         [Event(MessageEventId, Level = EventLevel.Informational, Message = "{0}")]
         public void Message(string message)
         {
-            if (IsEnabled())
+            if (this.IsEnabled())
             {
                 WriteEvent(MessageEventId, message);
             }
@@ -64,10 +64,10 @@ namespace Matrix.Service
         [NonEvent]
         public void ServiceMessage(ServiceContext serviceContext, string message, params object[] args)
         {
-            if (IsEnabled())
+            if (this.IsEnabled())
             {
 
-                var finalMessage = string.Format(message, args);
+                string finalMessage = string.Format(message, args);
                 ServiceMessage(
                     serviceContext.ServiceName.ToString(),
                     serviceContext.ServiceTypeName,
@@ -155,13 +155,13 @@ namespace Matrix.Service
         #region Private methods
         private static long GetReplicaOrInstanceId(ServiceContext context)
         {
-            var stateless = context as StatelessServiceContext;
+            StatelessServiceContext stateless = context as StatelessServiceContext;
             if (stateless != null)
             {
                 return stateless.InstanceId;
             }
 
-            var stateful = context as StatefulServiceContext;
+            StatefulServiceContext stateful = context as StatefulServiceContext;
             if (stateful != null)
             {
                 return stateful.ReplicaId;

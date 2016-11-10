@@ -1,4 +1,4 @@
-﻿namespace Matrix.Service.Service
+﻿namespace Matrix.Service.Generator
 {
     class EmptyGenerator : IMatrixGenerator
     {
