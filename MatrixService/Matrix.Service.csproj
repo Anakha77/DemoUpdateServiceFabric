@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -126,10 +126,10 @@
     <Compile Include="MatrixService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ServiceEventSource.cs" />
-    <Compile Include="Generator\BaseGenerator.cs" />
+    <Compile Include="Generator\AlphaNumericGenerator.cs" />
     <Compile Include="Generator\EmptyGenerator.cs" />
-    <Compile Include="Generator\IMatrixGenerator.cs" />
-    <Compile Include="Generator\MatrixGenerator.cs" />
+    <Compile Include="Generator\IGenerator.cs" />
+    <Compile Include="Generator\RandomGenerator.cs" />
     <Compile Include="ServiceRequestActionFilter.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

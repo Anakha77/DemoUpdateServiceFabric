@@ -2,15 +2,17 @@
 
 namespace Matrix.Service.Generator
 {
-    class MatrixGenerator : IMatrixGenerator
+    class RandomGenerator : IGenerator
     {
-        protected const string Possible = " ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        protected const string Possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-        public string Generate(int nbChars)
+        public string Generate()
         {
             var text = "";
+            const int nbChars = 128;
+
             var r = new Random();
-            for (var i = 0; i < r.Next(nbChars); i++)
+            for (var i = 0; i < nbChars; i++)
             {
                 text += Possible[r.Next(Possible.Length)];
             }

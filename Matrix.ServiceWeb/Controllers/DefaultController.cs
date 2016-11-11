@@ -24,8 +24,8 @@ namespace Matrix.ServiceWeb.Controllers
         }
 
         [HttpGet]
-        [Route("GetMatrix")]
-        public async Task<HttpResponseMessage> GetMatrix()
+        [Route("GetMatrix/{id}")]
+        public async Task<HttpResponseMessage> GetMatrix(int id)
         {
             var matrix = string.Empty;
             var partitionClient = new ServicePartitionClient<HttpCommunicationClient>(CommunicationFactory, ServiceUri);
@@ -33,6 +33,16 @@ namespace Matrix.ServiceWeb.Controllers
             await
                 partitionClient.InvokeWithRetryAsync(
                     async (client) => { matrix = await client.HttpClient.GetStringAsync(new Uri(client.Url, "get")); });
+
+            if (matrix.Length > 1)
+            {
+                matrix = matrix.Substring(1, matrix.Length - 2);
+            }
+
+            if (id < matrix.Length)
+            {
+                matrix = matrix.Substring(0, id);
+            }
 
             return new HttpResponseMessage
             {
