@@ -9,8 +9,8 @@ namespace Matrix.Service.Controllers
 
         public DefaultController()
         {
-            _generator = new EmptyGenerator();
-            //_generator = new RandomGenerator();
+            //_generator = new EmptyGenerator();
+            _generator = new RandomGenerator();
             //_generator = new AlphaNumericGenerator();
         }
 
