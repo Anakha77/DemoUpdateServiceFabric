@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Net.Http;
+using System.Web.Http;
 using Matrix.Service.Generator;
 
 namespace Matrix.Service.Controllers
@@ -10,15 +11,19 @@ namespace Matrix.Service.Controllers
         public DefaultController()
         {
             //_generator = new EmptyGenerator();
-            _generator = new RandomGenerator();
+            //_generator = new RandomGenerator();
             //_generator = new AlphaNumericGenerator();
+            _generator = new BoolGenerator();
         }
 
         [HttpGet]
         [Route("Get")]
-        public string Get()
+        public HttpResponseMessage Get()
         {
-            return _generator.Generate();
+            return new HttpResponseMessage
+            {
+                Content = new StringContent(_generator.Generate())
+            };
         }
     }
 }

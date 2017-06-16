@@ -22,8 +22,8 @@ namespace Matrix.Client
         private int _serviceErrors;
         private bool _loading;
 
-        public int MaxLines => (int)Math.Ceiling(lblMatrix.ActualHeight / 12);
-        public int MaxColumns => (int)Math.Floor(lblMatrix.ActualWidth / 6);
+        public int MaxLines => (int)Math.Ceiling(lblMatrix.ActualHeight / 24);
+        public int MaxColumns => (int)Math.Floor(lblMatrix.ActualWidth / 12);
 
         public bool Loading
         {
@@ -115,21 +115,26 @@ namespace Matrix.Client
         {
             Loading = true;
 
-            for (var i = 0; i < _seeds.Count; i++)
+            if (_seeds.Count == 0)
             {
-                _seeds[i] = await GetSeedAsync();
+                await PopulateSeedsAsync();
+            }
+            else
+            {
+                for (var i = 0; i < _seeds.Count; i++)
+                {
+                    _seeds[i] = await GetSeedAsync();
+                }
             }
 
             Loading = false;
         }
-        private async Task CompleteSeedsAsync()
+        private async Task PopulateSeedsAsync()
         {
-            if (_seeds.Count < MaxColumns)
+            _seeds.Clear();
+            for (var i = 0; i < MaxColumns - _seeds.Count; i++)
             {
-                for (var i = 0; i < MaxColumns - _seeds.Count; i++)
-                {
-                    await AddSeedAsync();
-                }
+                await AddSeedAsync();
             }
         }
 
@@ -137,14 +142,19 @@ namespace Matrix.Client
         {
             var line = string.Empty;
 
-            Task.Run(() => CompleteSeedsAsync());
-
             var r = new Random();
 
-            for (var i = 0; i < _seeds.Count; i++)
+            for (var i = 0; i < MaxColumns; i++)
             {
-                var seed = _seeds[i];
-                line += seed[r.Next(seed.Length)];
+                if (_seeds.Count > 0)
+                {
+                    var seed = _seeds[r.Next(_seeds.Count)];
+                    line += seed[r.Next(seed.Length)];
+                }
+                else
+                {
+                    line = string.Empty;
+                }
             }
             _lines.Add(line);
         }

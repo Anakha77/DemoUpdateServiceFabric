@@ -11,7 +11,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <DockPanel>
-            <Label x:Name="lblMatrix" Content="" Foreground="Green" FontFamily="Courier New" FontSize="10" FontWeight="Bold"/>
+            <Label x:Name="lblMatrix" Content="" Foreground="Green" FontFamily="Courier New" FontSize="20" FontWeight="Bold"/>
         </DockPanel>
 
     </Grid>
